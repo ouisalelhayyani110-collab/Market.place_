@@ -9,7 +9,7 @@ Sito progetto git di engim 2026
 
 **Front-end:** NextJS, React, Typescript, Jest, PostCSS, TailwindCSS, GSAP, Turbopack
 
-**Back-end:** --TODO
+**Back-end:** MySQL, PHP
 
 **DevOps**: Docker, Github Actions
 
@@ -23,4 +23,4 @@ Sito progetto git di engim 2026
 
 - [@ouisalelhayyani110-collab](https://www.github.com/ouisalelhayyani110-collab) -> Project manager
 - [@puria-79](https://www.github.com/puria-79) -> Front-end
-- @maria --TODO
+- [@mariaruffo](https://github.com/mariaruffo) -> Back-end
