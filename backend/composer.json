@@ -1,0 +1,11 @@
+{
+    "name": "maria/progettocura-lab_backend",
+    "autoload": {
+        "psr-4": {
+            "Maria\\ProgettocuraLabBackend\\": "src/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
