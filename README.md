@@ -9,7 +9,7 @@ Sito progetto git di engim 2026
 
 **Front-end:** NextJS, React, Typescript, React Query, Cypress, PostCSS, TailwindCSS, GSAP, Turbopack
 
-**Back-end:** MySQL, PHP
+**Back-end:** Laravel, MySQL, PHP
 
 **DevOps**: Docker, Github Actions
 
