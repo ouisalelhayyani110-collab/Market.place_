@@ -6,62 +6,53 @@ USE curalab;
 Aree mediche del poliambulatorio (usate anche per raggruppare i servizi e come campo di ricerca dei medici) */
 
 CREATE TABLE specializzazioni (
-    id           INT          NOT NULL AUTO_INCREMENT,
-    nome         VARCHAR(100) NOT NULL,
-    descrizione  TEXT,
-    icona        VARCHAR(255)          -- 'Nome del file icona o classe CSS',
-    attiva       BOOLEAN      NOT NULL DEFAULT TRUE,
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descrizione TEXT,
     PRIMARY KEY (id),
     UNIQUE KEY uq_spec_nome (nome)
 );
 
 INSERT INTO specializzazioni (nome, descrizione) VALUES
-    ('Cardiologia',       'Diagnosi e cura delle malattie del cuore e del sistema cardiovascolare'),
-    ('Ginecologia',       'Salute e prevenzione dell\'apparato riproduttivo femminile'),
-    ('Ortopedia',         'Diagnosi e trattamento di ossa, muscoli, articolazioni e tendini'),
-    ('Ostetricia',        'Assistenza medica in gravidanza, parto e puerperio'),
-    ('Chirurgia Generale','Interventi chirurgici di varia natura e complessità'),
-    ('Dermatologia',      'Diagnosi e cura delle malattie della pelle, capelli e unghie'),
-    ('Neurologia',        'Diagnosi e cura delle malattie del sistema nervoso'),
-    ('Pediatria',         'Salute, crescita e sviluppo di neonati e bambini');
+    ('Cardiologia', 'Diagnosi e cura delle malattie del cuore e del sistema cardiovascolare'),
+    ('Ginecologia', 'Salute e prevenzione dell\'apparato riproduttivo femminile'),
+    ('Ortopedia', 'Diagnosi e trattamento di ossa, muscoli, articolazioni e tendini'),
+    ('Ostetricia', 'Assistenza medica in gravidanza, parto e puerperio'),
+    ('Dermatologia', 'Diagnosi e cura delle malattie della pelle, capelli e unghie'),
+    ('Neurologia', 'Diagnosi e cura delle malattie del sistema nervoso'),
+    ('Pediatria', 'Salute, crescita e sviluppo di neonati e bambini');
 
 /*  2. SERVIZI
 Prestazioni specifiche erogate dal poliambulatorio, raggruppate per specializzazione */
 
 CREATE TABLE servizi (
-    id                  INT          NOT NULL AUTO_INCREMENT,
-    specializzazione_id INT          NOT NULL,
-    nome                VARCHAR(150) NOT NULL,
-    descrizione         TEXT                  
-    descrizione_estesa  TEXT                  
-    icona               VARCHAR(255),
-    durata_default_min  INT                   DEFAULT 30 
-    attivo              BOOLEAN      NOT NULL DEFAULT TRUE,
+    id INT NOT NULL AUTO_INCREMENT,
+    specializzazione_id INT NOT NULL,
+    nome VARCHAR(150) NOT NULL,
+    descrizione TEXT,                               
+    durata_default_min INT DEFAULT 30, 
     PRIMARY KEY (id),
     CONSTRAINT fk_serv_spec FOREIGN KEY (specializzazione_id)
         REFERENCES specializzazioni(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 INSERT INTO servizi (specializzazione_id, nome, durata_default_min) VALUES
-    (1, 'Visita cardiologica',              30),
-    (1, 'Elettrocardiogramma (ECG)',         20),
-    (1, 'Ecocardiogramma',                  45),
-    (2, 'Visita ginecologica',              30),
-    (2, 'Pap test e colposcopia',           30),
-    (2, 'Ecografia ostetrica',              30),
-    (3, 'Visita ortopedica',                30),
-    (3, 'Infiltrazione articolare',         30),
-    (4, 'Visita ostetrica',                 30),
-    (4, 'Corso pre-parto',                  60),
-    (5, 'Visita chirurgica',                30),
-    (5, 'Chirurgia ambulatoriale minore',   60),
-    (6, 'Visita dermatologica',             30),
-    (6, 'Mappatura nei',                    30),
-    (7, 'Visita neurologica',               45),
-    (7, 'Elettroencefalogramma (EEG)',      60),
-    (8, 'Visita pediatrica',               30),
-    (8, 'Bilancio di salute neonatale',    30);
-
+    (1, 'Visita cardiologica', 30),
+    (1, 'Elettrocardiogramma (ECG)', 20),
+    (1, 'Ecocardiogramma', 45),
+    (2, 'Visita ginecologica', 30),
+    (2, 'Pap test e colposcopia', 30),
+    (2, 'Ecografia ostetrica', 30),
+    (3, 'Visita ortopedica', 30),
+    (3, 'Infiltrazione articolare', 30),
+    (4, 'Visita ostetrica', 30),
+    (4, 'Corso pre-parto', 60),
+    (5, 'Visita dermatologica', 30),
+    (5, 'Mappatura nei', 30),
+    (6, 'Visita neurologica', 45),
+    (6, 'Elettroencefalogramma (EEG)', 60),
+    (7, 'Visita pediatrica', 30),
+    (7, 'Bilancio di salute neonatale', 30);
 
 
 /* 3. SEDI
