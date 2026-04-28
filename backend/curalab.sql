@@ -155,20 +155,6 @@ CREATE TABLE disponibilita (
 );
 
 
-/* 8. ECCEZIONI_DISPONIBILITA
-Chiusure / assenze singole del medico (festività, ferie…) */
-
-CREATE TABLE eccezioni_disponibilita (
-    id          INT  NOT NULL AUTO_INCREMENT,
-    medico_id   INT  NOT NULL,
-    data        DATE NOT NULL,
-    motivo      VARCHAR(255),
-    PRIMARY KEY (id),
-    CONSTRAINT fk_exc_medico FOREIGN KEY (medico_id)
-        REFERENCES medici(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-
 -- 9. PAZIENTI
 
 CREATE TABLE pazienti (
